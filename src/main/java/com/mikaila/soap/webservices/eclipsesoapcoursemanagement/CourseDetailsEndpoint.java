@@ -22,14 +22,14 @@ import com.mikaila.soap.webservices.eclipsesoapcoursemanagement.CourseDetailsSer
 //@ResponsePayload - the output/response needs to be converted back to xml
 //@PayloadRoot - Accept this request for the name space specified and the request in the xsd file
 
-//Mark this as an end point
-@Endpoint 
+
+@Endpoint //Mark this as an end point
 public class CourseDetailsEndpoint {
 
 	@Autowired
 	CourseDetailsService service;
 	
-	 	
+	 	//Method 1 - that takes a request and returns a response
 		@PayloadRoot(namespace="http://mikaila.com/courses", localPart="GetCourseDetailsRequest") 
 		@ResponsePayload 
 		public GetCourseDetailsResponse processCourseDetailsRequest(@RequestPayload GetCourseDetailsRequest request) {  //convert from Request.xml to java
@@ -56,9 +56,11 @@ public class CourseDetailsEndpoint {
 		@PayloadRoot(namespace="http://mikaila.com/courses", localPart="DeleteCourseDetailsRequest") 
 		@ResponsePayload 
 		public DeleteCourseDetailsResponse deleteCourseDetailsRequest(@RequestPayload DeleteCourseDetailsRequest request) {  //convert from Request.xml to java
+			// Status status -> from course details service
 			Status status = service.deleteById(request.getId());  //Status from CourseDetails service enum
 			 DeleteCourseDetailsResponse response = new DeleteCourseDetailsResponse();  //create an instance
-			 response.setStatus(mapStatus(status)); //map the two Status's - setStatus comes from xsd Java Object
+			 response.setStatus(mapStatus(status)); //map the two Status's 
+			 //- setStatus comes from xsd Java Object
 			return response;
 		}
 
@@ -94,7 +96,6 @@ public class CourseDetailsEndpoint {
 		}
 		
 		//Method for Status enum
-
 	private com.mikaila.courses.Status mapStatus(Status status) {  //parameter is service status
 		if(status == Status.FAILURE) {
 			return com.mikaila.courses.Status.FAILURE; //mapping the service Status to the Status we defined in the xsd bean

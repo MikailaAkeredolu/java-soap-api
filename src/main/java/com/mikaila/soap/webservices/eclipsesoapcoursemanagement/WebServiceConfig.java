@@ -12,7 +12,7 @@ import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
 
 @EnableWs  //Enable web services
-@Configuration  // spring configuration
+@Configuration  // MEANS THIS IS A spring configuration FILE
 public class WebServiceConfig {
 	
 	//Message dispatcher Servlet - to identify end points
@@ -35,7 +35,7 @@ public class WebServiceConfig {
 	// PortType - CoursePort
 	// Name space - http://mikaila.com/courses
 	// course-details.xsd
-	
+	//final endpoint will be - ws/courses.wsdl
 	@Bean(name ="courses")  //because we want the name - courses.wsdl
 	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema coursesSchema) {
 		DefaultWsdl11Definition definition = new DefaultWsdl11Definition();

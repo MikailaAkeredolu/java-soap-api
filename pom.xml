@@ -74,6 +74,7 @@
             <clearOutputDir>false</clearOutputDir>
             </configuration>
          </plugin>
+         <!-- END OF JAXB2 MAVEN PLUGIN -->
 		</plugins>
 	</build>
 

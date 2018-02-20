@@ -3,4 +3,6 @@
  xsi:schemaLocation="http://mikaila.com/courses course-details.xsd"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <id>123</id>     <!-- id can only have numbers -->
-</GetCourseDetailsRequest>
+</GetCourseDetailsRequest> 
+
+<!-- connects the XSD with a schema location -->

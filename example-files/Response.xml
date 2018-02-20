@@ -7,4 +7,4 @@ xsi:schemaLocation="http://mikaila.com/courses course-details.xsd">
 		<name>Spring Soap Tutorial</name>
 		<description>Learning basics of spring soap frame-work</description>
 	</CourseDetails>
-</GetCourseDetailsResponse>
+</GetCourseDetailsResponse> 

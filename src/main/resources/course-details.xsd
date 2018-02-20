@@ -3,10 +3,10 @@
 targetNamespace="http://mikaila.com/courses"
  xmlns:tns="http://mikaila.com/courses" elementFormDefault="qualified">
  
-	<xs:element name="GetCourseDetailsRequest">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="id" type="xs:int"></xs:element>
+	<xs:element name="GetCourseDetailsRequest"> <!-- element name -->
+		<xs:complexType> <!-- elements that can contain other elements -->
+			<xs:sequence><!-- sequence can contain sequence of things -->
+				<xs:element name="id" type="xs:int"></xs:element><!-- type -->
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -18,6 +18,15 @@ targetNamespace="http://mikaila.com/courses"
 			</xs:sequence>	
 		</xs:complexType>
 	</xs:element>
+	
+	<!-- Format for course details -->
+		<xs:complexType name="CourseDetails">
+		<xs:sequence>
+			<xs:element name="id" type="xs:int"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="description" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
 	
 		<xs:element name="GetAllCourseDetailsRequest">
 		<xs:complexType>
@@ -43,23 +52,18 @@ targetNamespace="http://mikaila.com/courses"
 	<xs:element name="DeleteCourseDetailsResponse">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="status" type="tns:Status"/>
+				<xs:element name="status" type="tns:Status"/><!-- tns is our target name space -->
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	
+	<!-- ENUM -->
 <xs:simpleType name="Status">
-	<xs:restriction base="xs:string">
+	<xs:restriction base="xs:string"> <!-- add a restriction to use only enumeration -->
 		<xs:enumeration value="SUCCESS"/>
 		<xs:enumeration value="FAILURE"/>
 	</xs:restriction>
 </xs:simpleType>
-	
-	<xs:complexType name="CourseDetails">
-		<xs:sequence>
-			<xs:element name="id" type="xs:int"/>
-			<xs:element name="name" type="xs:string"/>
-			<xs:element name="description" type="xs:string"/>
-		</xs:sequence>
-	</xs:complexType>
+
 </xs:schema>
 <!-- XSD's are used as a communication tool of the structure between provider and client  -->
